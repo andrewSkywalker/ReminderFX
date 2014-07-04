@@ -16,6 +16,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Level;
@@ -34,11 +36,13 @@ public class Reminder implements Serializable{
     
     private SimpleBooleanProperty synchronize;
     
+    private Date currentDate;
     
     public Reminder(){
         instance = this;
         synchronize = new SimpleBooleanProperty(false);
         activities = new LinkedList();
+        currentDate = Calendar.getInstance().getTime();
         load();
     }
 
@@ -135,5 +139,13 @@ public class Reminder implements Serializable{
     public void deleteActivity(int index){
         activities.remove(index);
         synchronize.set(true);
+    }
+    
+    public void setCurrentDate(Date d){
+        currentDate = d;
+    }
+    
+    public Date getCurrentDate(){
+        return currentDate;
     }
 }

@@ -19,7 +19,7 @@ import javafx.beans.property.SimpleStringProperty;
 public class Activity implements Serializable{
     private final SimpleStringProperty description;
     private Date insertDate;
-    private Date endDate;
+    private Date doneDate;
     private final SimpleBooleanProperty completed;
     private final SimpleStringProperty urgencyLevelString;
     private UrgencyLevel urgencyLevel;
@@ -29,7 +29,7 @@ public class Activity implements Serializable{
         description = new SimpleStringProperty();
         insertDate = c.getTime();
         c.add(Calendar.DAY_OF_MONTH, 1);
-        endDate = c.getTime();
+        doneDate = null;
         completed = new SimpleBooleanProperty(false);
         urgencyLevel = UrgencyLevel.MEDIUM;
         urgencyLevelString = new SimpleStringProperty(urgencyLevel.name());
@@ -51,12 +51,8 @@ public class Activity implements Serializable{
         this.insertDate = insertDate;
     }
 
-    public Date getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
+    public Date getDoneDate() {
+        return doneDate;
     }
 
     public boolean isCompleted() {
@@ -65,6 +61,10 @@ public class Activity implements Serializable{
 
     public void setCompleted(boolean completed) {
         this.completed.set(completed);
+        
+        if(completed){
+            doneDate = Reminder.getInstance().getCurrentDate();
+        }
     }
 
     public UrgencyLevel getUrgencyLevel() {

@@ -58,16 +58,6 @@ public class ReminderViewController extends VBox{
             }
         });
         
-//        for(int i = 0; i < 20; i++){
-//            Activity act = new Activity();
-//            act.setDescription("Attività di prova " + i);
-//            act.setUrgencyLevel(getRandomUrgencyLevel());
-////            act.setCompleted(true);
-//            reminder.getActivities().add(act);
-////            ActivityLabelController a = new ActivityLabelController(act);
-////            this.getChildren().add(a);
-//        }
-        
         int i = 0;
         for(Activity act: reminder.getActivities()){
             if(displayActivity(act, i)){
@@ -102,7 +92,8 @@ public class ReminderViewController extends VBox{
     @FXML public void onAddActivity(){
         Activity act = new Activity();
         act.setDescription("Nuova attività");
-        act.setInsertDate(datePicker.getCurrentDate());
+//        act.setInsertDate(datePicker.getCurrentDate());
+        act.setInsertDate(Reminder.getInstance().getCurrentDate());
         reminder.getActivities().add(act);
         ActivityLabelController alc = new ActivityLabelController(act, reminder.getActivities().size() - 1);
         activityLabelsPanel.getChildren().add(alc);
@@ -158,15 +149,16 @@ public class ReminderViewController extends VBox{
     }
     
     private boolean displayActivity(Activity act, int index){
+        Date currentDate = Reminder.getInstance().getCurrentDate();
         if(act.isCompleted()) {
-            if (equalDates(datePicker.getCurrentDate(), act.getInsertDate())) {
+            if (equalDates(currentDate, act.getInsertDate())) {
                 addActivityLabel(act, index);
                 return true;
             }
             return false;
         }
 
-        if (afterEqualDates(datePicker.getCurrentDate(), act.getInsertDate())) {
+        if (afterEqualDates(currentDate, act.getInsertDate())) {
             addActivityLabel(act, index);
             return true;
         } else {

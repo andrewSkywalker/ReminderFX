@@ -65,7 +65,7 @@ public class DatePicker extends VBox{
         //  SETTAGGIO DATA CORRENTE
         //
         //----------------------------------------------------------------------
-        currentDate = Calendar.getInstance().getTime();
+        currentDate = Reminder.getInstance().getCurrentDate();
         
         dayOfWeek = new SimpleStringProperty();
         dayOfWeek.addListener(new ChangeListener<String>() {
@@ -117,6 +117,7 @@ public class DatePicker extends VBox{
     }
     
     public void setDate(Date date){
+        Reminder.getInstance().setCurrentDate(date);
         currentDate = date;
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         dateLabelText.set(sdf.format(currentDate));
@@ -212,7 +213,4 @@ public class DatePicker extends VBox{
         }
     }
     
-    public Date getCurrentDate(){
-        return currentDate;
-    }
 }

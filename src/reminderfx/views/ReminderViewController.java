@@ -70,9 +70,9 @@ public class ReminderViewController extends VBox{
         
         int i = 0;
         for(Activity act: reminder.getActivities()){
-            ActivityLabelController a = new ActivityLabelController(act, i);
-            activityLabelsPanel.getChildren().add(a);
-            i++;
+            if(displayActivity(act, i)){
+                i++;
+            }
         }
     }
     
@@ -113,25 +113,32 @@ public class ReminderViewController extends VBox{
         activityLabelsPanel.getChildren().clear();
         int i = 0;
         for(Activity a : reminder.getActivities()){
-            if(afterEquals(datePicker.getCurrentDate(), a.getInsertDate())){
-                System.out.println(" Attività inserita");
-                ActivityLabelController alc = new ActivityLabelController(a, i);
-                activityLabelsPanel.getChildren().add(alc);
+            if(displayActivity(a, i)){
                 i++;
-            }
-            else {
-                System.out.println(" Attività non inserita");
             }
         }
     }
     
-    private boolean afterEquals(Date date1, Date date2){
+    private boolean equalDates(Date date1, Date date2){
         Calendar c1 = Calendar.getInstance();
         c1.setTime(date1);
         Calendar c2 = Calendar.getInstance();
         c2.setTime(date2);
         
-        System.out.print("1: " + c1.getTime() + " - 2: " + c2.getTime());
+//        System.out.print("1: " + c1.getTime() + " - 2: " + c2.getTime());
+        
+        return c1.get(Calendar.YEAR) == c2.get(Calendar.YEAR) &&
+                c1.get(Calendar.MONTH) == c2.get(Calendar.MONTH) &&
+                c1.get(Calendar.DAY_OF_MONTH) == c2.get(Calendar.DAY_OF_MONTH);
+    }
+    
+    private boolean afterEqualDates(Date date1, Date date2){
+        Calendar c1 = Calendar.getInstance();
+        c1.setTime(date1);
+        Calendar c2 = Calendar.getInstance();
+        c2.setTime(date2);
+        
+//        System.out.print("1: " + c1.getTime() + " - 2: " + c2.getTime());
         
         if(c1.get(Calendar.YEAR) > c2.get(Calendar.YEAR)){
             return true;
@@ -148,5 +155,27 @@ public class ReminderViewController extends VBox{
         }
         
         return c1.get(Calendar.DAY_OF_MONTH) >= c2.get(Calendar.DAY_OF_MONTH);
+    }
+    
+    private boolean displayActivity(Activity act, int index){
+        if(act.isCompleted()) {
+            if (equalDates(datePicker.getCurrentDate(), act.getInsertDate())) {
+                addActivityLabel(act, index);
+                return true;
+            }
+            return false;
+        }
+
+        if (afterEqualDates(datePicker.getCurrentDate(), act.getInsertDate())) {
+            addActivityLabel(act, index);
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    private void addActivityLabel(Activity act, int index){
+        ActivityLabelController alc = new ActivityLabelController(act, index);
+        activityLabelsPanel.getChildren().add(alc);
     }
 }

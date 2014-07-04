@@ -107,6 +107,7 @@ public class ReminderViewController extends VBox{
         ActivityLabelController alc = new ActivityLabelController(act, reminder.getActivities().size() - 1);
         activityLabelsPanel.getChildren().add(alc);
         alc.setIsEditing(true);
+//        System.out.println("ciao");
     }
     
     private void reload(){

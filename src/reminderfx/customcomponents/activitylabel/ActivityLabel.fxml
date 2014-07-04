@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<fx:root fx:id="activityLabel" alignment="CENTER_LEFT" onMouseClicked="#activityDone" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" spacing="5.0" type="HBox" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+    <stylesheets>
+        <URL value="@activitylabel.css" />
+    </stylesheets>
+    <children>
+        <TextField fx:id="descriptionEditorTextField" onKeyTyped="#onKeyTyped" prefHeight="32.0" prefWidth="250.0" promptText="Che devi fare?" styleClass="textField" HBox.hgrow="ALWAYS" />
+        <Label fx:id="descriptionLabel" onMouseClicked="#activityDone" prefHeight="32.0" prefWidth="400.0" text="Attività di prova" wrapText="true" HBox.hgrow="ALWAYS">
+            <font>
+                <Font size="14.0" />
+            </font>
+            <contextMenu>
+                <ContextMenu fx:id="operationsMenu">
+                    <items>
+                        <MenuItem fx:id="modifyTextItem" mnemonicParsing="false" onAction="#onEditDescriptionRequested" text="Modifica testo..." />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <CustomMenuItem mnemonicParsing="false" onAction="#setNonUrgent" text="Set Non Urgente">
+                            <content>
+                                <Label text="Non urgente">
+                                    <graphic>
+                                        <ImageView fitWidth="10" preserveRatio="true" smooth="true">
+                                            <image>
+                                                <Image url="@quad-skyblue.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Label>
+                            </content>
+                        </CustomMenuItem>
+                        <CustomMenuItem mnemonicParsing="false" onAction="#setLittleUrgent" text="Set Poco Urgente">
+                            <content>
+                                <Label text="Poco urgente">
+                                    <graphic>
+                                        <ImageView fitWidth="10" preserveRatio="true" smooth="true">
+                                            <image>
+                                                <Image url="@quad-limegreen.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Label>
+                            </content>
+                        </CustomMenuItem>
+                        <CustomMenuItem mnemonicParsing="false" onAction="#setMediumUrgent" text="Set Urgente">
+                            <content>
+                                <Label text="urgente">
+                                    <graphic>
+                                        <ImageView fitWidth="10" preserveRatio="true" smooth="true">
+                                            <image>
+                                                <Image url="@quad-gold.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Label>
+                            </content>
+                        </CustomMenuItem>
+                        <CustomMenuItem mnemonicParsing="false" onAction="#setGreatUrgent" text="Set Molto Urgente">
+                            <content>
+                                <Label text="Molto urgente">
+                                    <graphic>
+                                        <ImageView fitWidth="10" preserveRatio="true" smooth="true">
+                                            <image>
+                                                <Image url="@quad-darkorange.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Label>
+                            </content>
+                        </CustomMenuItem>
+                        <CustomMenuItem mnemonicParsing="false" onAction="#setMaximumUrgent" text="Set Urgentissimo">
+                            <content>
+                                <Label text="Urgentissimo">
+                                    <graphic>
+                                        <ImageView fitWidth="10" preserveRatio="true" smooth="true">
+                                            <image>
+                                                <Image url="@quad-red.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Label>
+                            </content>
+                        </CustomMenuItem>
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <CustomMenuItem mnemonicParsing="false" onAction="#onDeleteActivity" text="Elimina">
+                            <content>
+                                <Label fx:id="deleteActivityLabel" contentDisplay="RIGHT" text="Elimina">
+                                    <graphic>
+                                        <ImageView fitHeight="15.0" fitWidth="10.0" preserveRatio="true">
+                                            <image>
+                                                <Image url="@delete-256.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Label>
+                            </content>
+                        </CustomMenuItem>
+                    </items>
+                </ContextMenu>
+            </contextMenu>
+            <HBox.margin>
+                <Insets left="10.0" />
+            </HBox.margin>
+        </Label>
+        <ImageView fx:id="doneImageView" fitHeight="32.0" fitWidth="32.0" onMouseClicked="#activityDone" pickOnBounds="true" preserveRatio="true" visible="false">
+        </ImageView>
+    </children>
+</fx:root>

@@ -1,0 +1,27 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+    -fx-background-image: url("../images/sfondo4.jpeg");
+}
+
+.scroll-pane{
+    -fx-background-image: url("../images/sfondo4.jpeg");
+}
+
+#addActivityButton{
+    -fx-effect: innershadow(gaussian, rgba(255, 255, 255, 0.5), 1, 0, 0, 2);
+    /*-fx-effect: dropshadow(gaussian, black, 1, 0, 0, 2);*/
+}
+
+#addActivityButton:hover {
+    -fx-effect: innershadow(gaussian, rgba(255, 255, 255, 0.25), 1, 0, 0, 100);
+    /*-fx-effect: dropshadow(gaussian, black, 1, 0, 0, 1);*/
+    /*-fx-background-color: linear-gradient( from 0% 0% to 0% 100%, #fb9e25 5%, #ffc477 100% );*/
+}
+
+#addActivityButton:active {
+    -fx-position:relative;
+    -fx-top:1px;
+}

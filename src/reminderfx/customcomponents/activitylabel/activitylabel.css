@@ -1,0 +1,105 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.activityLabelDone {
+    -fx-background-color: whitesmoke;
+    -fx-background-radius: 10;
+    -fx-border-color: silver;
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
+    /*-fx-effect: dropshadow( gaussian , rgba(0,0,0,0.25) , 0,0,0,2 );*/
+}
+
+.activityLabelDone:hover{
+    -fx-effect: innershadow(gaussian, rgba(0,0,0,1), 20, 0.1, 0, 0);
+}
+
+.activityLabelUrgencyNone{
+    /*-fx-background-color: linear-gradient(to top, royalblue 0%, skyblue 50%, white 100%);*/
+    /*-fx-background-color: linear-gradient(to top, royalblue 0%, deepskyblue 50%);*/
+    -fx-background-color: radial-gradient(center 50% 50%, radius 50%, white, skyblue);
+    -fx-background-radius: 10;
+    -fx-border-width: 1;
+    -fx-border-color: darkblue;
+    -fx-border-radius: 10;
+    /*-fx-effect: dropshadow( gaussian , rgba(0,0,0,0.25) , 0,0,0,2 );*/
+}
+
+.activityLabelUrgencyNone:hover{
+    -fx-effect: innershadow(gaussian, rgba(255,255,255,1), 20, 0.1, 0, 0);
+}
+
+
+.activityLabelUrgencyLittle{
+/*    -fx-background-color: linear-gradient(to top, green 0%, limegreen 50%, white 100%);*/
+    /*-fx-background-color: linear-gradient(to top, green 0%, limegreen 50%);*/
+    -fx-background-color: radial-gradient(center 50% 50%, radius 50%, white, limegreen);
+    -fx-background-radius: 10;
+    -fx-border-width: 1;
+    -fx-border-color: darkgreen;
+    -fx-border-radius: 10;
+    /*-fx-effect: dropshadow( gaussian , rgba(0,0,0,0.5) , 0,0,0,2 );*/
+}
+
+.activityLabelUrgencyLittle:hover{
+    -fx-effect: innershadow(gaussian, rgba(255,255,255,1), 20, 0.1, 0, 0);
+}
+
+.activityLabelUrgencyMedium{
+    /*-fx-background-color: linear-gradient(to top, goldenrod 0%, gold 50%, white 100%);*/
+    /*-fx-background-color: linear-gradient(to top, goldenrod 0%, gold 50%);*/
+    -fx-background-color: radial-gradient(center 50% 50%, radius 50%, white, gold);
+    -fx-background-radius: 10;
+    -fx-border-width: 1;
+    -fx-border-color: saddlebrown;
+    -fx-border-radius: 10;
+    /*-fx-effect: dropshadow( gaussian , rgba(0,0,0,0.5) , 0,0,0,2 );*/
+}
+.activityLabelUrgencyMedium:hover{
+    -fx-effect: innershadow(gaussian, rgba(255,255,255,1), 20, 0.1, 0, 0);
+}
+
+.activityLabelUrgencyGreat{
+/*    -fx-background-color: linear-gradient(to top, sienna 0%, darkorange 50%, white 100%);*/
+    /*-fx-background-color: linear-gradient(to top, sienna 0%, darkorange 50%);*/
+    -fx-background-color: radial-gradient(center 50% 50%, radius 50%, white, darkorange);
+    -fx-background-radius: 10;
+    -fx-border-width: 1;
+    -fx-border-color: brown;
+    -fx-border-radius: 10;
+    /*-fx-effect: dropshadow( gaussian , rgba(0,0,0,0.5) , 0,0,0,2 );*/
+}
+.activityLabelUrgencyGreat:hover{
+    -fx-effect: innershadow(gaussian, rgba(255,255,255,1), 20, 0.1, 0, 0);
+}
+
+.activityLabelUrgencyMaximum{
+    /*-fx-background-color: linear-gradient(to top, darkred 0%, red 50%, white 100%);*/
+    /*-fx-background-color: linear-gradient(to top, darkred 0%, red 50%);*/
+    -fx-background-color: radial-gradient(center 50% 50%, radius 40%, white, red);
+    -fx-background-radius: 10;
+    -fx-border-width: 1;
+    -fx-border-color: black;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    /*-fx-effect: dropshadow( gaussian , rgba(0,0,0,0.5) , 0,0,0,2 );*/
+}
+.activityLabelUrgencyMaximum:hover{
+    -fx-effect: innershadow(gaussian, rgba(255,255,255,1), 20, 0.1, 0, 0);
+}
+
+.textField{
+   -fx-font-size: 14;
+   -fx-background-radius: 10;
+}
+
+.descriptionLabelDone{
+    -fx-text-fill: grey;
+    -fx-skin: null;
+}
+
+.descriptionLabelTodo{
+    -fx-text-fill: black;
+    -fx-skin: null;
+}

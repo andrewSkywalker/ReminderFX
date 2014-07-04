@@ -1,0 +1,78 @@
+/*
+ * Stylesheet per il componente DatePicker
+ */
+
+.mainFxmlClass {
+
+}
+
+.button{
+    -fx-effect: innershadow(gaussian, white, 1, 0, 0, 1);
+    -fx-background-color: linear-gradient(from 0% 0% to 0% 100%, #ffc477 5%, #fb9e25 100%);
+    -fx-border-radius: 20px;
+    -fx-text-indent:0;
+    -fx-border:1px solid #eeb44f;
+    -fx-display:inline-block;
+    -fx-text-fill:#ffffff;
+    -fx-font-family:Arial;
+    -fx-font-size:15px;
+    -fx-font-weight:bold;
+    -fx-font-style:normal;
+    -fx-height:75px;
+    -fx-line-height:75px;
+    -fx-width:100px;
+    -fx-text-decoration:none;
+    -fx-text-align:center;
+    -fx-text-shadow:1px 1px 0px #cc9f52;
+}
+
+.button:pressed {
+    -fx-background-color: linear-gradient( from 0% 0% to 0% 100%, #fb9e25 5%, #ffc477 100% );
+}
+
+.button:hover{
+    -fx-effect: innershadow(gaussian, white, 10, 0.1, 0, 0);
+}
+
+.button:active {
+    -fx-position:relative;
+    -fx-top:1px;
+}
+/*
+#prevDayButton{
+    
+}
+
+#nextDayButton{
+    
+}
+
+#nextMonthButton{
+    
+}*/
+
+#dateLabel{
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    /*-fx-text-fill: linear-gradient(from 0% 0% to 0% 100%, black 0%, darkorange 50%, black 100%);*/
+    -fx-text-fill: radial-gradient(center 50% 50%, radius 100%, #ffd499, darkorange);
+    /*-fx-effect: innershadow( gaussian , rgba(255,255,255,0.7) , 2, 0.0 , 0 , 2 );*/
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.5) , 0,0,0,2 );
+}
+
+#dayOfWeekLabel{
+    -fx-font-size: 18px;
+    -fx-text-fill: linear-gradient(from 0% 0% to 0% 100%, darkorange 0%, orange 50%, darkorange 100%);
+}
+
+#dateEditorTextField{
+    -fx-height: 75px;
+    -fx-width: 95%;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: radial-gradient(center 50% 50%, radius 100%, #ffd499, darkorange);
+    -fx-background-color: forestgreen;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+    /*-fx-effect: dropshadow( gaussian , rgba(0,0,0,0.5) , 0,0,0,2 );*/
+}

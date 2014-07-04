@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<fx:root id="AnchorPane" alignment="TOP_CENTER" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" type="javafx.scene.layout.VBox" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+    <stylesheets>
+        <URL value="@reminderview.css" />
+    </stylesheets>
+   <children>
+      <!--<fx:include source="../customcomponents/DatePicker.fxml" />-->
+       <reminderfx.customcomponents.DatePicker fx:id="datePicker" fillWidth="true" />
+      <HBox alignment="CENTER_RIGHT" prefHeight="64.0" spacing="10.0">
+         <children>
+            <ImageView fx:id="addActivityButton" fitHeight="32.0" fitWidth="32.0" onMouseClicked="#onAddActivity" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/add-icon.png" />
+               </image>
+            </ImageView>
+         </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </HBox>
+      <ScrollPane fitToHeight="true" fitToWidth="true" prefViewportHeight="200.0" prefViewportWidth="600.0" VBox.vgrow="ALWAYS">
+         <content>
+            <VBox fx:id="activityLabelsPanel" prefHeight="200.0" prefWidth="100.0" spacing="5.0" />
+         </content>
+      </ScrollPane>
+   </children>
+</fx:root>
